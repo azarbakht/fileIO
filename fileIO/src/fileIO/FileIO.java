@@ -74,7 +74,7 @@ public class FileIO {
 			System.out.println("location: " + locationAuthor);
 			System.out.println("date: " + date);
 			System.out.println("lastLineFloat: " + number);
-			System.out.println("lastLine : " + lastLine);
+			System.out.println("lastLine: " + lastLine);
 			
 		}
 		input.close();
