@@ -35,7 +35,7 @@ public class FileIO {
 
 		if (myFile.exists()){
 			System.out.println("File already exists!");
-			System.exit(1);
+//			System.exit(1);
 		}
 
 		java.io.PrintWriter output = new java.io.PrintWriter(myFile);
@@ -46,7 +46,7 @@ public class FileIO {
 		output.print("Vancouver, BC, Canada \n");
 		output.println(new java.util.Date((new java.util.Date()).getTime()));
 		output.printf("%4.2f \n", 3704.123455);
-		output.println("=========================================== \n");		
+		output.println("===========================================");		
 
 		output.close();
 	}
@@ -55,28 +55,33 @@ public class FileIO {
 		
 		if (!myFile.exists()){
 			System.out.println("File does not exist!");
-			System.exit(1);
+//			System.exit(1);
 		}
 		
 		Scanner input = new Scanner(myFile);
 		
-		while(input.hasNext()){
+		System.out.println("current delimiter = " + input.delimiter());;
+		input.useDelimiter(" |\n");
+		
+//		while(input.hasNext()){
 			String stringWrittenFirstLine = input.nextLine();
 			String string2ndLine = input.nextLine();
 			String authorName = input.nextLine();
 			String locationAuthor = input.nextLine();
 			String date = input.nextLine();
 			float number = input.nextFloat();
-			String lastLine = input.next();
+			String lastLine1 = input.nextLine(); // to skip the \n
+			String lastLine2 = input.nextLine();
+			
 			System.out.println("stringWrittenFirstLine: " + stringWrittenFirstLine);
 			System.out.println("2nd line: " + string2ndLine);
 			System.out.println("authorName: " + authorName);
 			System.out.println("location: " + locationAuthor);
 			System.out.println("date: " + date);
 			System.out.println("lastLineFloat: " + number);
-			System.out.println("lastLine: " + lastLine);
+			System.out.println("lastLine: " + lastLine2);
 			
-		}
+//		}
 		input.close();
 		
 	}
