@@ -1,10 +1,13 @@
 package fileIO;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.ObjectInputStream.GetField;
 import java.util.Date;
 import java.util.Scanner;
 import java.net.*;
+import java.io.*;
 
 public class FileIO {
 	
@@ -32,6 +35,14 @@ public class FileIO {
 			e.printStackTrace();
 		}
 
+		
+		try {
+			writeAppendData(myFile, "Single vs. Multiple");
+			readData(myFile);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		
 //
 //		try {
@@ -99,11 +110,20 @@ public class FileIO {
 		System.out.println("date: " + date);
 		System.out.println("lastLineFloat: " + number);
 		System.out.println("lastLine: " + lastLine2);
-
+		System.out.println(input.nextLine());
 		//		}
 		input.close();
 
 	}
+	
+	public static void writeAppendData(File file, String stringToBeAppended) throws IOException {
+		
+		// OUTPUT with append ***************************************************************
+		PrintWriter printWriter = new PrintWriter(new FileOutputStream(file, true));
+		printWriter.println(stringToBeAppended + "\n");
+		printWriter.close();
+	}
+	
 
 	public static void readDataFromWebURL(URL url) throws Exception{
 
